@@ -143,8 +143,17 @@ extension NoticiasViewController: UITextFieldDelegate {
             return true
         } else {
             //el usuario no escribio nada
-            textField.placeholder = "Debes escribir algo.."
+            mostrarAlerta(titulo: "Atención", mensaje: "Escribe un tema para buscar noticias relacionadas (Ejemplo: clima)")
             return false
         }
+    }
+    
+    func mostrarAlerta(titulo: String, mensaje: String) {
+        let alerta = UIAlertController(title: titulo, message: mensaje, preferredStyle: .alert)
+        let accionAceptar = UIAlertAction(title: "OK", style: .default) { _ in
+            //Do something
+        }
+        alerta.addAction(accionAceptar)
+        present(alerta, animated: true)
     }
 }
