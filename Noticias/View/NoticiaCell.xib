@@ -50,15 +50,17 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vacaciones dignas' ¿Cómo será su aplicación para los empleados que ya cuentan con antigüedad en la empresa en que laboran?" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzS-FN-4W9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="bz0-fA-bo5">
                                 <rect key="frame" x="0.0" y="100" width="310" height="75"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="Qo2-pC-ltb"/>
+                                    <constraint firstAttribute="height" constant="75" id="bFD-Yz-K3l"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HVN-YJ-EvC">
                                 <rect key="frame" x="0.0" y="190" width="310" height="30"/>
                                 <subviews>
@@ -80,6 +82,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -91,7 +94,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="descripcionNoticia" destination="IzS-FN-4W9" id="sdX-nT-J3N"/>
+                <outlet property="backgroundStack" destination="PEz-9Z-IeU" id="EL9-sp-SwG"/>
+                <outlet property="descripcionNoticia" destination="bz0-fA-bo5" id="YTo-WA-svz"/>
                 <outlet property="fechaNoticia" destination="XGg-VX-HKu" id="lho-CU-zon"/>
                 <outlet property="fuenteNoticia" destination="zX6-rw-adc" id="WcD-4J-2eF"/>
                 <outlet property="imagenNoticia" destination="sbT-IL-ze7" id="JS8-qR-q0j"/>
@@ -107,6 +111,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

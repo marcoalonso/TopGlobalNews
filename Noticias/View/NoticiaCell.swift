@@ -11,7 +11,9 @@ import Kingfisher
 class NoticiaCell: UITableViewCell {
 
     @IBOutlet weak var tituloNoticia: UILabel!
-    @IBOutlet weak var descripcionNoticia: UILabel!
+    
+    @IBOutlet weak var backgroundStack: UIStackView!
+    @IBOutlet weak var descripcionNoticia: UITextView!
     @IBOutlet weak var imagenNoticia: UIImageView!
     @IBOutlet weak var fechaNoticia: UILabel!
     @IBOutlet weak var fuenteNoticia: UILabel!
@@ -41,6 +43,8 @@ class NoticiaCell: UITableViewCell {
     }
     
     func setupCelda(noticia: Noticia) {
+        backgroundStack.layer.cornerRadius = 15
+        backgroundStack.layer.masksToBounds = true
         tituloNoticia.text = noticia.title
         descripcionNoticia.text = noticia.description
         fuenteNoticia.text = "Fuente: \(noticia.source.name ?? "")"
