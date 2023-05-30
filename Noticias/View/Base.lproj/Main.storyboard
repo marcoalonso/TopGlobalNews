@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IcD-57-gke">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -103,21 +103,66 @@
             </objects>
             <point key="canvasLocation" x="2792.3076923076924" y="-28.436018957345969"/>
         </scene>
-        <!--Mas -->
+        <!--Mas acciones-->
         <scene sceneID="yB3-O5-Ctn">
             <objects>
                 <viewController id="5VY-bM-2cf" customClass="AccionesViewController" customModule="Noticias" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUW-sd-Wlo">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HDD-DU-rl2">
+                                <rect key="frame" x="20" y="91" width="350" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="2rC-gX-17N" imageView="5rw-Hp-oZA" style="IBUITableViewCellStyleDefault" id="UDD-Si-gAH">
+                                        <rect key="frame" x="0.0" y="50" width="350" height="47.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UDD-Si-gAH" id="eSN-Tl-uEO">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="47.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2rC-gX-17N">
+                                                    <rect key="frame" x="59" y="0.0" width="271" height="47.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="square.and.arrow.up" catalog="system" id="5rw-Hp-oZA">
+                                                    <rect key="frame" x="22.5" y="12.333333333333336" width="19" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pNB-sl-X28"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HDD-DU-rl2" firstAttribute="leading" secondItem="pNB-sl-X28" secondAttribute="leading" constant="20" id="3l6-IL-9hK"/>
+                            <constraint firstItem="HDD-DU-rl2" firstAttribute="top" secondItem="pNB-sl-X28" secondAttribute="top" id="GEq-2Z-3uN"/>
+                            <constraint firstItem="pNB-sl-X28" firstAttribute="trailing" secondItem="HDD-DU-rl2" secondAttribute="trailing" constant="20" id="O86-4a-Fbn"/>
+                            <constraint firstItem="pNB-sl-X28" firstAttribute="bottom" secondItem="HDD-DU-rl2" secondAttribute="bottom" id="gBv-Ti-tQK"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Mas " id="1h4-Y0-DX6"/>
+                    <navigationItem key="navigationItem" title="Mas acciones" id="1h4-Y0-DX6">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="K5n-yC-muq">
+                            <connections>
+                                <action selector="shareButton:" destination="5VY-bM-2cf" id="GZX-9x-cjI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="accionesTableview" destination="HDD-DU-rl2" id="J4N-ct-yEa"/>
+                        <outlet property="compartirButton" destination="K5n-yC-muq" id="1ws-20-dwa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXy-X1-Kwy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3571" y="-28"/>
+            <point key="canvasLocation" x="3577" y="-18"/>
         </scene>
         <!--Imagen Desde URL View Controller-->
         <scene sceneID="XPi-Uv-ZF8">
@@ -171,6 +216,7 @@
     <resources>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
