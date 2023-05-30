@@ -97,6 +97,10 @@ class NoticiasViewController: UIViewController, NoticiaManagerProcol, UITableVie
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Vibracion
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+        
         tableView.deselectRow(at: indexPath, animated: true)
         urlSitioWeb = listaNoticias[indexPath.row].url
         guard let url = URL(string: urlSitioWeb ?? "") else { return }
