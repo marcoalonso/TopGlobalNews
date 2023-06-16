@@ -27,6 +27,7 @@ class AccionesViewController: UIViewController {
     ]
     
     
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var compartirButton: UIBarButtonItem!
     
     @IBOutlet weak var accionesTableview: UITableView!
@@ -34,10 +35,37 @@ class AccionesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let isDarkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+       darkModeSwitch.isOn = isDarkModeEnabled
+       darkModeSwitch.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
 
         accionesTableview.delegate = self
         accionesTableview.dataSource = self
     }
+    
+    @objc func switchValueChanged(_ sender: UISwitch) {
+            
+            if sender.isOn {
+                print("Debug: true darkMode")
+
+                UserDefaults.standard.set(sender.isOn, forKey: "darkModeEnabled")
+            } else {
+                print("Debug: false darkMode")
+                UserDefaults.standard.set(sender.isOn, forKey: "darkModeEnabled")
+            }
+            
+            if let appDelegate = UIApplication.shared.windows.first {
+                print("Debug: darkMode changed!")
+
+                if sender.isOn {
+                    appDelegate.overrideUserInterfaceStyle = .dark
+                } else {
+                    appDelegate.overrideUserInterfaceStyle = .light
+                }
+            }
+            
+        }
     
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
         compartir()
@@ -56,7 +84,7 @@ extension AccionesViewController: MFMailComposeViewControllerDelegate {
             composeVC.mailComposeDelegate = self
             
             //Configurar el cueroo del correo
-            composeVC.setToRecipients(["marco.alonso@mobilestudio.mx"])
+            composeVC.setToRecipients(["marcoalonsoiosdeveloper@gmail.com"])
             composeVC.setSubject("Quiero hacer una sugerencia")
             composeVC.setMessageBody("Me gustaría ", isHTML: false)
             self.present(composeVC, animated: true)
